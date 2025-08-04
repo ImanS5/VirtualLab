@@ -1,4 +1,4 @@
-clear; clc;
+clear; clc; close all;
 
 % initialise the class tokamak
 tok = tokamak;
@@ -59,12 +59,12 @@ hold on
 contour(equi.geo.grid.Rg,equi.geo.grid.Zg,psi_n{2},'-b')
 contour(equi.geo.grid.Rg,equi.geo.grid.Zg,psi_n{3},'r')
 
-figure(2)
+figure()
 clf
 for i = 1 : length(Ip_s)
-
     subplot(1,3,i)
     contourf(equi.geo.grid.Rg,equi.geo.grid.Zg,psi{i},20)
+    title(['Ip = ', num2str(Ip_s(i))]);
     grid on
     grid minor
     axis equal

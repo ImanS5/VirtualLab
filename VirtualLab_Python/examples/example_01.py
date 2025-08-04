@@ -5,6 +5,11 @@ Created on Thu Jun  5 10:40:41 2025
 @author: ricca
 """
 
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'simpla_python')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'syndiag_python')))
+
 from functions.tokamak import tokamak
 from functions.geometry import geometry
 from functions.equilibrium import equilibrium
