@@ -24,8 +24,8 @@ equi.separatrix = equi.separatrix.build_separatrix(equi.config.separatrix,equi.g
 Ip_s = [-3e6 -10e6 -15e6];
 
 % change convergence parameters
-equi.config.GSsolver.abs_tol = 1e-5;
-equi.config.GSsolver.rel_tol = 1e-5;
+equi.config.GSsolver.abs_tol = 1e-6;
+equi.config.GSsolver.rel_tol = 1e-6;
 equi.config.GSsolver.maxIter = 1000;
 
 for i = 1 : length(Ip_s)
@@ -59,15 +59,19 @@ hold on
 contour(equi.geo.grid.Rg,equi.geo.grid.Zg,psi_n{2},'-b')
 contour(equi.geo.grid.Rg,equi.geo.grid.Zg,psi_n{3},'r')
 
+% Find global min and max for psi
+psi_min = min(cellfun(@(x) min(x(:)), psi));
+psi_max = max(cellfun(@(x) max(x(:)), psi));
+
 figure()
 clf
 for i = 1 : length(Ip_s)
     subplot(1,3,i)
-    contourf(equi.geo.grid.Rg,equi.geo.grid.Zg,psi{i},20)
+    contourf(equi.geo.grid.Rg, equi.geo.grid.Zg, psi{i}, 20)
+    caxis([psi_min psi_max]) % Set consistent color limits
     title(['Ip = ', num2str(Ip_s(i))]);
     grid on
     grid minor
     axis equal
     colorbar()
-
 end
