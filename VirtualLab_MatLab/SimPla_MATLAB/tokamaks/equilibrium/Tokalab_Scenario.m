@@ -61,8 +61,8 @@ function config = Tokalab_Scenario(separatrix,toroidal_current_method)
         % this method implement the function in (reference)
         config.toroidal_current.method = 1;
         
-        config.toroidal_current.Bt = 3;
-        config.toroidal_current.Ip = -12e6;
+        config.toroidal_current.Bt = 3.45;
+        config.toroidal_current.Ip = -4.8e6;
 
         config.toroidal_current.alpha_1 = 2;
         config.toroidal_current.alpha_2 = 2;
@@ -71,7 +71,30 @@ function config = Tokalab_Scenario(separatrix,toroidal_current_method)
         config.toroidal_current.lambda = 1;
         
     elseif toroidal_current_method == 2
-        % New method to be implemented
+        % ITER TF Spec
+        config.toroidal_current.method = 1;
+        
+        config.toroidal_current.Bt = 5.3;
+        config.toroidal_current.Ip = -15e6;
+
+        config.toroidal_current.alpha_1 = 2;
+        config.toroidal_current.alpha_2 = 2;
+        config.toroidal_current.beta_0 = 0.5;
+    
+        config.toroidal_current.lambda = 1;
+        
+      elseif toroidal_current_method == 3
+        % Tokamak Energy's Demo4 TF spec
+         config.toroidal_current.method = 1;
+        
+        config.toroidal_current.Bt = 18;
+        config.toroidal_current.Ip = -12e6;
+
+        config.toroidal_current.alpha_1 = 2;
+        config.toroidal_current.alpha_2 = 2;
+        config.toroidal_current.beta_0 = 0.5;
+    
+        config.toroidal_current.lambda = 1;
     end
 
 
