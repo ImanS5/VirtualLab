@@ -68,10 +68,13 @@ clf
 for i = 1 : length(Ip_s)
     subplot(1,3,i)
     contourf(equi.geo.grid.Rg, equi.geo.grid.Zg, psi{i}, 20)
-    caxis([psi_min psi_max]) % Set consistent color limits
+    clim([psi_min psi_max]) % Set consistent color limits
     title(['Ip = ', num2str(Ip_s(i))]);
+    xlabel('R [m]')           % X-axis label with units
+    ylabel('Z [m]')           % Y-axis label with units
     grid on
     grid minor
     axis equal
-    colorbar()
+    cb = colorbar();
+    ylabel(cb, '\psi [Wb]')   % Colorbar label with units (replace [Wb] with correct unit if needed)
 end
