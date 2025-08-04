@@ -47,7 +47,7 @@ clf
 legends = cell(1,2);
 legends{1} = "Wall";
 legends{2} = "Flux Loops";
-C = orderedcolors("gem");
+C = colormap('parula'); % or 'jet', 'hsv', 'lines', etc.
 
 subplot(1,3,2)
 equi.geo.plot_wall()

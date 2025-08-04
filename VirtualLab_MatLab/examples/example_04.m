@@ -1,4 +1,4 @@
-clear; clc;
+clear; clc; close all
 
 %% here we test a new tokamak, TOKAPUG!
 
